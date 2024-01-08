@@ -28,7 +28,16 @@ time.sleep(3)
 
 current_url = driver.current_url
 
+product_price = "No encontrado"
 
+try:
+    product_price = driver.find_element(
+        By.XPATH, 
+        '(//span[contains(@class, "atg_store_productPrice")])[1]/span[contains(@class, "atg_store_newPrice")]'
+    ).get_attribute('innerHTML').strip()
+except Exception as e:
+    print("Error!", e)
 
+print(product_price)
 
 driver.close()

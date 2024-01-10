@@ -13,8 +13,8 @@ product = None
 
 match option:
     case "1":
-        product = "Gaseosa Coca Cola 2.5lt"
+        product = "Gaseosa Coca Cola 2.5 L"
     case "2":
-        product = "Gaseosa Coca Cola 2.25lt"
+        product = "Gaseosa Coca Cola 2.25 L"
     case "3":
-        product = "Gaseosa Coca Cola Sabor Original 500ml"
+        product = "Gaseosa Coca Cola Sabor Original 500 Ml"

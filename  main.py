@@ -1,4 +1,5 @@
 from scraper import get_product_info
+from data import export_product_info_to_csv
 import time
 
 # Menu
@@ -31,3 +32,19 @@ print("")
 print(
     f'Nombre: {product_info["name"]}\nDescripcion: {product_info["description"]}\nPrecio: {product_info["price"]}\nCategoria: {product_info["category"]}\nImagen: {product_info["picture"]}\nEnlace: {product_info["url"]}'
 )
+
+print("")
+print("¿Te gustaría exportar la informacion en un archivo CSV?")
+answer = input("Sí (s)/No (n): ").lower()
+
+match answer:
+    case "s":
+        print("Exportando...")
+        if export_product_info_to_csv(product_info):
+            print("¡La información ha sido exportada correctamente!")
+        else:
+            print("Ha ocurrido un problema. Por favor intentalo de nuevo.")
+    case "n":
+        print("¡Gracias por utilizar la aplicacion!")
+    case _:
+        print("Por favor, introduce una respuesta válida.")

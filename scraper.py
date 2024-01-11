@@ -5,12 +5,15 @@ from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 import time
 
+# Function to execute when this script is run instead of imported
+def main_greeting():
+    return "Executing script"
 
-def get_product_info(product: str):
+def get_product_info(product: str) -> dict:
     """
     Takes a string with a product name and searches for it on a supermarket website.
 
-    Returns product name, description, price, category, url and picture url after scraping the website.
+    Returns a dictionary with product name, description, price, category, url and picture url after scraping the website.
     """    
 
     driver = webdriver.Chrome()
@@ -70,4 +73,4 @@ def get_product_info(product: str):
     }
 
 if __name__ == "__main__":
-    get_product_info()
+    main_greeting()

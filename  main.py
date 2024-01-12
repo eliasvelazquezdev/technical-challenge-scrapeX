@@ -1,11 +1,12 @@
 from scraper import get_product_info
 from data import export_product_info_to_csv
-import time
+
 
 # Menu
 print("Bienvenido/a al scraper de precios.")
 
 choice = True
+product_list = []
 
 while(choice):
     print("Estos son los productos disponibles:")
@@ -27,9 +28,6 @@ while(choice):
             product = "Gaseosa Coca Cola 2.25 L"
         case "3":
             product = "Gaseosa Coca Cola Sabor Original 500 Ml"
-
-
-    product_list = []
 
     # Get product's information from website
     product_info = get_product_info(product)
@@ -58,6 +56,7 @@ for product in product_list:
     print(
         f'Nombre: {product["name"]}\nDescripcion: {product["description"]}\nPrecio: {product["price"]}\nCategoria: {product["category"]}\nImagen: {product["picture"]}\nEnlace: {product["url"]}'
     )
+    print("")
 
 print("")
 print("¿Te gustaría exportar la informacion en un archivo CSV?")
@@ -68,6 +67,7 @@ match answer_2:
         print("Exportando...")
         if export_product_info_to_csv(product_list):
             print("¡La información ha sido exportada correctamente!")
+            print("¡Gracias por utilizar la aplicacion!")
         else:
             print("Ha ocurrido un problema. Por favor intentalo de nuevo.")
     case "n":

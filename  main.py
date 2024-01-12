@@ -3,22 +3,22 @@ from data import export_product_info_to_csv
 
 
 # Menu
-print("Bienvenido/a al scraper de precios.")
+print("Welcome to the product scraper!")
 
 choice = True
 product_list = []
 
 while(choice):
-    print("Estos son los productos disponibles:")
+    print("These are the available products:")
     print("")
     print("1. Gaseosa Coca Cola 2.5lt")
     print("2. Gaseosa Coca Cola 2.25lt")
     print("3. Gaseosa Coca Cola Sabor Original 500ml")
 
     print("")
-    option = input("Selecciona el producto del cual te gustaría recibir información. Introduce el numero correspondiente: ")
+    option = input("Choose which product you'd like to get information from by typing the corresponding number.")
 
-    print("Consiguiendo información...")
+    print("Retrieving information...")
     product = None
 
     match option:
@@ -35,21 +35,21 @@ while(choice):
     # Check if the product has been previously consulted and is part of the list of products
     if product_info not in product_list:
         product_list.append(product_info)
-        print("Informacion de producto obtenida correctamente.")
+        print("Product information retrieved correctly.")
     else:
-        print("Este producto fue consultado previamente.")
+        print("This product was already consulted!")
 
     print("")
-    print("¿Te gustaría consultar otro producto?")
-    answer = input("Sí (s)/No (n): ").lower()
+    print("Would you like to choose another product?")
+    answer = input("Yes (y)/No (n): ").lower()
     match answer:
-        case "s":
+        case "y":
             pass
         case "n":
             choice = False
 
 
-print("Esta es la informacion obtenida del/los producto/s seleccionado/s: ")
+print("This is the information about the selected product/s: ")
 print("")
 
 for product in product_list:
@@ -59,18 +59,18 @@ for product in product_list:
     print("")
 
 print("")
-print("¿Te gustaría exportar la informacion en un archivo CSV?")
-answer_2 = input("Sí (s)/No (n): ").lower()
+print("Would you like to export the information into a csv file?")
+answer_2 = input("Yes (y)/No (n): ").lower()
 
 match answer_2:
-    case "s":
-        print("Exportando...")
+    case "y":
+        print("Exporting...")
         if export_product_info_to_csv(product_list):
-            print("¡La información ha sido exportada correctamente!")
-            print("¡Gracias por utilizar la aplicacion!")
+            print("Information exported successfully!")
+            print("Thank you for using the app!")
         else:
-            print("Ha ocurrido un problema. Por favor intentalo de nuevo.")
+            print("A problem has occurred! Please try again.")
     case "n":
-        print("¡Gracias por utilizar la aplicacion!")
+        print("Thank you for using the app!")
     case _:
-        print("Por favor, introduce una respuesta válida.")
+        print("Please introduce a valid answer. Aborting...")
